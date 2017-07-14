@@ -1,14 +1,8 @@
 {
     "startup_app": {
-        "name": "hm",
-        "uuid": "hm",
-        "autoShow": true,
-        "url": "http://localhost:5000/index.htm"
+        "url": "http://localhost:5000/index.htm", "name": "hm", "uuid": "hm", "autoShow": true,
     },
     "runtime": {
-        "version": "6.49.20.22",
-        "forcelatest": true,
-        "arguments": ""
-    },
-    "shortcut": {}
+        "version": "6.49.20.22", "forcelatest": true, "arguments": ""
+    }
 }
