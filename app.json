@@ -1,0 +1,14 @@
+{
+    "devtools_port": 9090,
+    "startup_app": {
+        "name": "hm",
+        "url": "http://localhost:5000/hm.html",
+        "uuid": "hm",
+        "autoShow": true
+    },
+    "runtime": {
+        "arguments": "",
+        "version": "6.49.20.22",
+        "forcelatest": true
+    }
+}
