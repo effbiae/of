@@ -1,2 +1,2 @@
 #!/bin/bash
-./gen && git add gen up hm.q app.json index.htm README.m* && git commit -m 'x' && git push -u origin master
+./gen && git add gen up hm.q app.json index.htm README.md readme.m4 && git commit -m 'x' && git push -u origin master

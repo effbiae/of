@@ -1,7 +1,7 @@
 divert(-1)
 define(`src',`[$1]($1)')
 define(`kofjs',`src(kof.js)')
-define(`Hmht', `index.html')
+define(`Hmht', `index.htm')
 define(`hmht', `src(Hmht)')
 define(`Hmq',  `hm.q')
 define(`hmq',  `src(Hmq)')
