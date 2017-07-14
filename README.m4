@@ -7,8 +7,7 @@ define(`Hmq',  `hm.q')
 define(`hmq',  `src(Hmq)')
 define(`appjson',`src(app.json)')
 define(`ti',    changequote([,])[changequote([,])`$1`changequote(`,')]changequote(`,'))
-define(`_c',changequote([,])[changequote([,])
-```
+define(`_c',changequote([,])[changequote([,])```
 changequote(`,')]changequote(`,'))
 define(`NAME',`kdb-openfin')
 define(`name',`*NAME*')
@@ -19,7 +18,6 @@ name (or *openfink*, *kdb+openfin*, *kopenfin*)
  is a bridge between [openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in openfin, using pub+sub.
 
 ## Contents
-More precisely, name contains:
  - kofjs - an openfin headless app that bridges kdb+ and openfin pub+sub
    - listens for openfin IAB subs and forwards these to kdb over a Websocket
    - listens for kdb+ pubs and publishes to the openfin IAB
@@ -29,17 +27,18 @@ More precisely, name contains:
    - *openfin* subscribes to openfin
  - appjson - the configuration needed to run openfin
 
-define(`cjs',`https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js')
+define(`cjs',`https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js')dnl
 # Use
-Get [c.js](cjs) eg. _c $ curl -o c.js cjs _c
-
-Run q on port 5000 with hmq _c $ q Hmq -p 5000 _c
-
-Open hmht in a browser that supports Websocket.  eg. _c $ google-chrome Hmht _c
-
+Get [c.js](cjs) eg. 
+_c$ curl -o c.js cjs _c
+Run q on port 5000 with hmq
+_c$ q Hmq -p 5000 _c
+Open hmht in a browser that supports Websocket.  eg.
+_c$ google-chrome Hmht _c
 ## openfin 
-Install ti(openfin) if not installed _c $ npm install -g openfin-cli _c
-
-Run q as in the previous example, but with a timer for pub+sub: _c $ q Hmq -p 5000 -t 100 _c
-
-Run openfin with appjson _c $ openfin -l -c app.json _c
+Install ti(openfin) if not installed
+_c$ npm install -g openfin-cli _c
+Run q as in the previous example, but with a timer for pub+sub
+_c$ q Hmq -p 5000 -t 100 _c
+Run openfin with appjson 
+_c$ openfin -l -c app.json _c

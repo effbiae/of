@@ -5,7 +5,6 @@
  is a bridge between [openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in openfin, using pub+sub.
 
 ## Contents
-More precisely, *kdb-openfin* contains:
  - [kof.js](kof.js) - an openfin headless app that bridges kdb+ and openfin pub+sub
    - listens for openfin IAB subs and forwards these to kdb over a Websocket
    - listens for kdb+ pubs and publishes to the openfin IAB
@@ -15,41 +14,29 @@ More precisely, *kdb-openfin* contains:
    - *openfin* subscribes to openfin
  - [app.json](app.json) - the configuration needed to run openfin
 
-
 # Use
 Get [c.js](https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js) eg. 
 ```
- $ curl -o c.js https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js 
-```
+$ curl -o c.js https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js ```
 
-
-Run q on port 5000 with [hm.q](hm.q) 
+Run q on port 5000 with [hm.q](hm.q)
 ```
- $ q hm.q -p 5000 
-```
+$ q hm.q -p 5000 ```
 
-
-Open [hm.html](hm.html) in a browser that supports Websocket.  eg. 
+Open [hm.html](hm.html) in a browser that supports Websocket.  eg.
 ```
- $ google-chrome hm.html 
-```
-
+$ google-chrome hm.html ```
 
 ## openfin 
-Install `openfin` if not installed 
+Install `openfin` if not installed
 ```
- $ npm install -g openfin-cli 
-```
+$ npm install -g openfin-cli ```
 
-
-Run q as in the previous example, but with a timer for pub+sub: 
+Run q as in the previous example, but with a timer for pub+sub
 ```
- $ q hm.q -p 5000 -t 100 
-```
-
+$ q hm.q -p 5000 -t 100 ```
 
 Run openfin with [app.json](app.json) 
 ```
- $ openfin -l -c app.json 
-```
+$ openfin -l -c app.json ```
 
