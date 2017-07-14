@@ -34,13 +34,14 @@ define(`cjs',`https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js')dnl
 Get [c.js](cjs) eg. 
 _c$ curl -o c.js cjs L _c
 Run q on port 5000 with hmq.  openfin needs the q webserver and openfin apps need Websocket server.
-_c$ q Hmq -p 5000 _C
+The one second timer is for pub+sub
+_c$ q Hmq -p 5000 -t 1000 _C
 Open hmht in a browser that supports Websocket.  eg.
 _c$ google-chrome http://localhost:5000/Hmht _C
 ## openfin 
 Install ti(openfin) if not installed
 _c$ npm install -g openfin-cli _C
-Run q as in the previous example, but with a timer for pub+sub
-_c$ q Hmq -p 5000 -t 100 _C
+Run q as in the previous example (if not still running)
+_c$ q Hmq -p 5000 -t 1000 _C
 Run openfin with appjson 
 _c$ openfin -l -c app.json _C
