@@ -1,11 +1,11 @@
 
 
 # Introduction
-`kdb-openfin` (footnote: naming convention - kdb+openfin, kopenfin, openfink) 
+*kdb-openfin* (footnote: naming convention - kdb+openfin, kopenfin, openfink) 
  is a bridge between [openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in openfin, using pub+sub.
 
 ## Contents
-More precisely, `kdb-openfin` contains:
+More precisely, *kdb-openfin* contains:
  - [kof.js](kof.js) - an openfin headless app that bridges kdb+ and openfin pub+sub
    - listens for openfin IAB subs and forwards these to kdb over a Websocket
    - listens for kdb+ pubs and publishes to the openfin IAB

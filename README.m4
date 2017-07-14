@@ -8,7 +8,7 @@ define(`packagejson',`src(package.json)')
 define(`ti',    changequote([,])[changequote([,])`$1`changequote(`,')]changequote(`,'))
 define(`_code',changequote([,])[changequote([,])```changequote(`,')]changequote(`,'))
 define(`NAME',`kdb-openfin')
-define(`name',`ti(NAME)')
+define(`name',`*NAME*')
 divert(1)
 
 # Introduction
