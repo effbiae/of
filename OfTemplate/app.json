@@ -1,0 +1,20 @@
+{
+    "devtools_port": 9090,
+    "startup_app": {
+        "name": "OfTemplate",
+        "url": "http://localhost:5000",
+        "uuid": "OfTemplate",
+        "applicationIcon": "http://localhost:5000/favicon.ico",
+        "autoShow": true
+    },
+    "runtime": {
+        "arguments": "",
+        "version": "stable"
+    },
+    "shortcut": {
+        "company": "OpenFin",
+        "description": "OpenFin Template",
+        "icon": "http://localhost:5000/favicon.ico",
+        "name": "OfTemplate"
+    }
+}
