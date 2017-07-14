@@ -7,7 +7,9 @@ define(`Hmq',  `hm.q')
 define(`hmq',  `src(Hmq)')
 define(`appjson',`src(app.json)')
 define(`ti',    changequote([,])[changequote([,])`$1`changequote(`,')]changequote(`,'))
-define(`_code',changequote([,])[changequote([,])```changequote(`,')]changequote(`,'))
+define(`_c',changequote([,])[changequote([,])
+```
+changequote(`,')]changequote(`,'))
 define(`NAME',`kdb-openfin')
 define(`name',`*NAME*')
 divert(1)
@@ -30,10 +32,10 @@ More precisely, name contains:
 define(`cjs',`https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js')
 # Use
 Get [c.js](cjs) eg:
- ti($ curl -o c.js cjs)
+ _c $ curl -o c.js cjs _c
 
 Run q on port 5000 with hmq
- ti($ q Hmq -p 5000)
+ _c $ q Hmq -p 5000 _c
 
 Open hmht in a browser that supports Websocket.  eg:
  ti($ google-chrome Hmht)

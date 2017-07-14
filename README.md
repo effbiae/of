@@ -18,10 +18,18 @@ More precisely, *kdb-openfin* contains:
 
 # Use
 Get [c.js](https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js) eg:
- `$ curl -o c.js https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js`
+ 
+```
+ $ curl -o c.js https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js 
+```
+
 
 Run q on port 5000 with [hm.q](hm.q)
- `$ q hm.q -p 5000`
+ 
+```
+ $ q hm.q -p 5000 
+```
+
 
 Open [hm.html](hm.html) in a browser that supports Websocket.  eg:
  `$ google-chrome hm.html`
