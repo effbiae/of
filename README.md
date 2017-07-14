@@ -15,19 +15,23 @@ More precisely, *kdb-openfin* contains:
    - *openfin* subscribes to openfin
  - [app.json](app.json) - the configuration needed to run openfin
 
+
 # Use
+Get [c.js](https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js) eg:
+ `$ curl -o c.js https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js`
+
 Run q on port 5000 with [hm.q](hm.q)
  `$ q hm.q -p 5000`
 
-Open hmtm in a browser that supports Websocket.  eg:
+Open [hm.html](hm.html) in a browser that supports Websocket.  eg:
  `$ google-chrome hm.html`
 
 ## openfin 
+Install `openfin` if not installed,
+ `$ npm install -g openfin-cli`
+
 Run q as in the previous example, but with a timer for pub+sub
  `$ q hm.q -p 5000 -t 100`
 
-If `openfin` is not installed, install with:
- `$ npm install -g openfin-cli`
-
-Run openfin with the app.json 
+Run openfin with [app.json](app.json) 
  `$ openfin -l -c app.json`

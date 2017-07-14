@@ -27,19 +27,23 @@ More precisely, name contains:
    - *openfin* subscribes to openfin
  - appjson - the configuration needed to run openfin
 
+define(`cjs',`https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js')
 # Use
+Get [c.js](cjs) eg:
+ ti($ curl -o c.js cjs)
+
 Run q on port 5000 with hmq
  ti($ q Hmq -p 5000)
 
-Open hmtm in a browser that supports Websocket.  eg:
+Open hmht in a browser that supports Websocket.  eg:
  ti($ google-chrome Hmht)
 
 ## openfin 
+Install ti(openfin) if not installed,
+ ti($ npm install -g openfin-cli)
+
 Run q as in the previous example, but with a timer for pub+sub
  ti($ q Hmq -p 5000 -t 100)
 
-If ti(openfin) is not installed, install with:
- ti($ npm install -g openfin-cli)
-
-Run openfin with the app.json 
+Run openfin with appjson 
  ti($ openfin -l -c app.json)
