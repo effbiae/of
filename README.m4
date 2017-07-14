@@ -12,7 +12,7 @@ define(`name',`*NAME*')
 divert(1)
 
 # Introduction
-name (footnote: naming convention - kdb+openfin, kopenfin, openfink) 
+name (or *openfink*, *kdb+openfin*, *kopenfin*) 
  is a bridge between [openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in openfin, using pub+sub.
 
 ## Contents
