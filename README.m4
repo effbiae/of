@@ -15,7 +15,6 @@ define(`_C',`L _c')
 define(`NAME',`kdb-openfin')
 define(`name',`*NAME*')
 divert(1)
-
 # Introduction
 name (or *openfink*, *kdb+openfin*, *kopenfin*) 
  is a bridge between [openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in openfin, using pub+sub.
@@ -34,10 +33,10 @@ define(`cjs',`https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js')dnl
 # Use
 Get [c.js](cjs) eg. 
 _c$ curl -o c.js cjs L _c
-Run q on port 5000 with hmq
+Run q on port 5000 with hmq.  openfin needs the q webserver and openfin apps need Websocket server.
 _c$ q Hmq -p 5000 _C
 Open hmht in a browser that supports Websocket.  eg.
-_c$ google-chrome Hmht _C
+_c$ google-chrome http://localhost:5000/Hmht _C
 ## openfin 
 Install ti(openfin) if not installed
 _c$ npm install -g openfin-cli _C
