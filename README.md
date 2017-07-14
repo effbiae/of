@@ -17,26 +17,32 @@
 # Use
 Get [c.js](https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js) eg. 
 ```
-$ curl -o c.js https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js ```
+$ curl -o c.js https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js 
+ ```
 
 Run q on port 5000 with [hm.q](hm.q)
 ```
-$ q hm.q -p 5000 ```
+$ q hm.q -p 5000 
+ ```
 
 Open [hm.html](hm.html) in a browser that supports Websocket.  eg.
 ```
-$ google-chrome hm.html ```
+$ google-chrome hm.html 
+ ```
 
 ## openfin 
 Install `openfin` if not installed
 ```
-$ npm install -g openfin-cli ```
+$ npm install -g openfin-cli 
+ ```
 
 Run q as in the previous example, but with a timer for pub+sub
 ```
-$ q hm.q -p 5000 -t 100 ```
+$ q hm.q -p 5000 -t 100 
+ ```
 
 Run openfin with [app.json](app.json) 
 ```
-$ openfin -l -c app.json ```
+$ openfin -l -c app.json 
+ ```
 
