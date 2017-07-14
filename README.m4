@@ -31,21 +31,15 @@ More precisely, name contains:
 
 define(`cjs',`https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js')
 # Use
-Get [c.js](cjs) eg:
- _c $ curl -o c.js cjs _c
+Get [c.js](cjs) eg. _c $ curl -o c.js cjs _c
 
-Run q on port 5000 with hmq
- _c $ q Hmq -p 5000 _c
+Run q on port 5000 with hmq _c $ q Hmq -p 5000 _c
 
-Open hmht in a browser that supports Websocket.  eg:
- ti($ google-chrome Hmht)
+Open hmht in a browser that supports Websocket.  eg. _c $ google-chrome Hmht _c
 
 ## openfin 
-Install ti(openfin) if not installed,
- ti($ npm install -g openfin-cli)
+Install ti(openfin) if not installed _c $ npm install -g openfin-cli _c
 
-Run q as in the previous example, but with a timer for pub+sub
- ti($ q Hmq -p 5000 -t 100)
+Run q as in the previous example, but with a timer for pub+sub: _c $ q Hmq -p 5000 -t 100 _c
 
-Run openfin with appjson 
- ti($ openfin -l -c app.json)
+Run openfin with appjson _c $ openfin -l -c app.json _c
