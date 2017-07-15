@@ -23,13 +23,13 @@ name (or *openfink*, *kdb+openfin*, *kopenfin*)
  is a bridge between [openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in openfin, using pub+sub.
 
 ## Contents
- - hmht hmq - an example HTML5 heatmap on localhost using Websocket
+ - hmht, hmq - an example HTML5 heatmap on localhost using Websocket
  - kofjs - bridges openfin's iab and kdb+ pub+sub using Websocket
    - finds available subscriptions in kdb+, publishes symbols on topic "k"
    - listens for openfin IAB subs and forwards these to kdb over a Websocket
    - listens for kdb+ pubs and publishes to the openfin iab
    - [option] kdb+ requests sub on IAB and kofjs sends any matching pubs
- - ixht appjson - an openfin headless app that opens hmht
+ - ixht, appjson - an openfin headless app that opens hmht
    - ixht uses kofjs to interface to the iab
    - hmht uses the IAB rather than a Websocket to get heat
 
