@@ -1,7 +1,9 @@
 divert(-1)
 define(`src',`[$1]($1)')
 define(`kofjs',`src(kof.js)')
-define(`Hmht', `index.htm')
+define(`Ixht', `index.htm')
+define(`Hmht', `hm.htm')
+define(`imht', `src(Imht)')
 define(`hmht', `src(Hmht)')
 define(`Hmq',  `hm.q')
 define(`hmq',  `src(Hmq)')
@@ -20,14 +22,18 @@ name (or *openfink*, *kdb+openfin*, *kopenfin*)
  is a bridge between [openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in openfin, using pub+sub.
 
 ## Contents
- - kofjs - an openfin headless app that bridges kdb+ and openfin pub+sub
+ - inxht appjson kofjs - an openfin headless app that bridges kdb+ and openfin pub+sub
    - listens for openfin IAB subs and forwards these to kdb over a Websocket
    - listens for kdb+ pubs and publishes to the openfin IAB
    - [option] kdb+ requests sub on IAB and kofjs sends any matching pubs
  - hmht hmq - an example HTML5 heatmap on localhost with 2 modes of operation selected from the window:
    - *Websocket* directly subscribes to kdb+
    - *openfin* subscribes to openfin
- - appjson - the configuration needed to run openfin
+ - the configuration needed to run openfin
+
+## Background
+
+ [openfin/app-bootstrap](https://github.com/openfin/app-bootstrap)
 
 define(`cjs',`https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js')dnl
 # Use
