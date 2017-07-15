@@ -3,7 +3,7 @@ define(`src',`[$1]($1)')
 define(`kofjs',`src(kof.js)')
 define(`Ixht', `index.htm')
 define(`Hmht', `hm.htm')
-define(`imht', `src(Imht)')
+define(`ixht', `src(Ixht)')
 define(`hmht', `src(Hmht)')
 define(`Hmq',  `hm.q')
 define(`hmq',  `src(Hmq)')
@@ -16,20 +16,22 @@ define(`L',`
 define(`_C',`L _c')
 define(`NAME',`kdb-openfin')
 define(`name',`*NAME*')
+define(`iab',`[IAB](http://cdn.openfin.co/jsdocs/stable/fin.desktop.InterApplicationBus.html)')
 divert(1)
 # Introduction
 name (or *openfink*, *kdb+openfin*, *kopenfin*) 
  is a bridge between [openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in openfin, using pub+sub.
 
 ## Contents
- - inxht appjson kofjs - an openfin headless app that bridges kdb+ and openfin pub+sub
+ - hmht hmq - an example HTML5 heatmap on localhost using Websocket
+ - kofjs - bridges openfin's iab and kdb+ pub+sub using Websocket
+   - finds available subscriptions in kdb+, publishes symbols on topic "k"
    - listens for openfin IAB subs and forwards these to kdb over a Websocket
-   - listens for kdb+ pubs and publishes to the openfin IAB
+   - listens for kdb+ pubs and publishes to the openfin iab
    - [option] kdb+ requests sub on IAB and kofjs sends any matching pubs
- - hmht hmq - an example HTML5 heatmap on localhost with 2 modes of operation selected from the window:
-   - *Websocket* directly subscribes to kdb+
-   - *openfin* subscribes to openfin
- - the configuration needed to run openfin
+ - ixht appjson - an openfin headless app that opens hmht
+   - ixht uses kofjs to interface to the iab
+   - hmht uses the IAB rather than a Websocket to get heat
 
 ## Background
 
