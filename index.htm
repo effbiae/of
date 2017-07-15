@@ -1,6 +1,6 @@
-<script src="kof.js"></script>
+<!--script src="kof.js"></script-->
 <script>
-kofinit();
+L=function(x){return console.log(x);}
 
 function hm()
 { g.loginWindow = new fin.desktop.Window({
@@ -11,7 +11,7 @@ function hm()
     frame: false,
     resize: false,
     autoShow: true,
-}, () => { console.log("The window has successfully been created"); },
-   () => { console.log("Error creating window"); });
+}, () => { L("The window has successfully been created"); },
+   () => { L("Error creating window"); });
 }
 </script>
