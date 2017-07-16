@@ -79,11 +79,16 @@ function hm()
 <script type="text/javascript">
 function take(x,y){var r=[];if(x>0){r[x-1]=0;r.fill(y,0,x);}return r;}
 function til(x){var r=[];return take(x,0).map(function(v,i,a){return i;});}
+function L(x){console.log(x);}
+function `len'(x){return x.length;}
+function drop(x,y){return y<0?x.slice(0,y):x.slice(y,x.length);}
+function rank(x){return til(x.length).sort(function(a,b){return x[a]-x[b];});}
+function apply(x,y){return til(x.length).map(function(i){return x[y[i]];});}
+function find(X,y){return X.findIndex(y);}
 function sho(x){console.log(x);return x;}
 R=Math.round;F=Math.floor;
 function fr(x,r,c){x.fillStyle='rgb('+c.map(R).join()+')';x.fillRect.apply(x,r);return x;}
 function tx(x,t,p,z,c){x.fillStyle='rgb('+c.join()+')';x.font=z+'px sans';x.fillText(t,p[0],p[1]);return x;}
-function cs(n){return til(n).map(function(x){return[x>n/2?256/n*x:0,0,x<=n/2?256/n*(x+n/2):0];});}
 function rani(x){return F(Math.random()*x);}
 function rand(x){return x[rani(x.length)];}
 function draw(){
@@ -99,6 +104,30 @@ function draw(){
    var Ty=til(n-1).map(function(y){tx(g,u[n-1-y],[10,F(y*rh)+10+o[1]+15],12,[50,0,100]);});
    tx(g,"Currency Pair Volatility",[80,30],20,[0,0,0]);
 }}
+/*the hm api requires the user to
+   - hmini(name,xlabels,ylabels,colors) to name the hm and label the axes and set the palette (colors)
+   - hmupd(x,y,color-index) to update the values
+*/
+var G,g,p; //p is pallette
+function hmini(na,a,b,c){
+  var e=document.getElementById('canvas');if(e.getContext)g=e.getContext('2d');else throw new Error("no 2d context");
+  var w=e.height=e.width||512;L('w'+w);
+  p=c;
+  n=a.length;if(n!=b.length)throw new Error("mismatch");var o=[50,70],rw=(w-o[0])/n,rh=(w-o[1])/n;
+  G=til(n).map(function(x){return til(n).map(function(y){return [[F(x*rw)+o[0],F(y*rh+o[1]),F(rw-1),F(rh-1)],c[0]];})});
+  G.map(function(x){x.map(function(y){fr(g,y[0],y[1]);})});
+  var Tx=til(n-1).map(function(x){tx(g,a[x],[F(x*rw)+o[0]+10,o[1]-10],12,[50,0,100]);});
+  var Ty=til(n-1).map(function(y){tx(g,b[y],[10,F(y*rh)+10+o[1]+15],12,[50,0,100]);});
+  tx(g,na,[80,30],20,[0,0,0]);
+}
+function hmupd(x,y,z){fr(g,G[x][y][0],p[z]);}
+function cs(w){return til(w).map(function(x){return[x>w/2?256/w*x:0,0,x<=w/2?256/w*(x+w/2):0];});}
+function hmtest(){
+  var a="GBP USD EUR JPY CHF CAD AUD NZD".split(" "),n=a.length-1;
+  hmini("Currency Pair Volatility",drop(a,-1),drop(a,1),cs(n));
+  til(n).map(function(x){til(n).map(function(y){hmupd(x,y,rani(n));});});
+}
+document.addEventListener("DOMContentLoaded",hmtest);
 /*
 //define onpub for both websocket and openfin
 var onpub;
@@ -123,7 +152,8 @@ function init()
 */
 </script></head>
 
-<body onload="draw();"><canvas id="canvas"></canvas></body>
+<!--body onload="draw();"><canvas id="canvas" width=512></canvas></body-->
+<body><canvas id="canvas" width="512"></canvas></body>
 </html>
 @hm.q
 .h.HOME:first system"pwd"
