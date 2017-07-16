@@ -94,26 +94,4 @@ var hmtest, hmini, hmupd;
             });
         });
     };
-    /*
-    //define onpub for both websocket and openfin
-    var onpub;
-    document.addEventListener("DOMContentLoaded", function(){ init(); });
-    function openfin()
-    {
-    }
-    function wsconnect()
-    {if ("WebSocket" in window)
-     {var l=window.location,ws=new WebSocket("ws://"+(l.hostname||"localhost")+":"+(l.port||"5000")+"/");function wL(x){console.Log(x);}
-      wL("connecting...");
-      ws.onopen=function(e){wL("connected");} ws.onclose=function(e){wL("disconnected");} ws.onmessage=function(e){wL(e.data);} ws.onerror=function(e){wL(e.data);}
-      return ws;
-     }else return 0;
-    }
-    function openfin(){fin.desktop.main(()=>(return 1;))}
-    function init()
-    {if("fin"       in window) openfin();   else
-     if("Websocket" in window) wsconnect(); else
-     fail()
-    }
-    */
-})(); //use strict 'closure'
+})();
