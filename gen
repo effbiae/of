@@ -1,2 +1,0 @@
-#!/bin/bash
-m4 f| awk 'NF==1 && sub(/^@/,""){f=$0; next} {print > f}'
