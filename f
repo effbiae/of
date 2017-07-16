@@ -79,9 +79,22 @@ function hm()
    () => { L("Error creating window"); });
 }
 </script>
+@ws.js
+var wscon,wsset,wsget;
+(function(){
+  function L(x){console.log(x);}
+  wsset=function(w,x,f,g){w.onmessage=f;w.onerror=g;return w.send(x);};
+  wscon=function(f)
+  {var l=window.location,w=new WebSocket("ws://"+(l.hostname||"localhost")+":"+(l.port||"POrt")+"/");
+   f("connecting...");w.onopen=f;w.onclose=f;return wsset(w,f,f);
+  };
+  wsget=function(w,x){return new Promise((f,g)=>{wsset(w,x,f,g)});};
+ }
+})();
 @hm.htm
 <html><head><title>Heat Map</title>
 <script src="hm.js"></script>
+<script src="ws.js"></script>
 <script>document.addEventListener("DOMContentLoaded",hmtest);
  /*
  //define onpub for both websocket and Of
@@ -159,7 +172,12 @@ cd ..
     "shortcut": {}
 }
 @kof.js
+var kof;
 (function(){ "use strict";
+ kof.connect=function(x)
+ {if("fin"       in window) openfin();   else
+  if("Websocket" in window) wsconnect(); else
+ }
 })();
 @up
 make && git add makefile ti(grep ^@ f |cut -b2-) && git commit -m 'x' && git push -u origin master
