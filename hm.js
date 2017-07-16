@@ -18,7 +18,7 @@ var hmtest, hmini, hmupd;
     }
 
     function drop(x, y) {
-        return y < 0 ? x.slice(0, y) : x.slice(y, x.length);
+        return x < 0 ? y.slice(0, x) : y.slice(x, y.length);
     }
 
     function fr(x, r, c) {
