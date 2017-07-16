@@ -3,7 +3,7 @@
  is a bridge between [openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in openfin, using pub+sub.
 
 ## Contents
- - [hm.htm](hm.htm), [hm.q](hm.q) - an example HTML5 heatmap on localhost using Websocket
+ - [hm.htm](hm.htm), [hm.js](hm.js), [hm.q](hm.q) - an example HTML5 heatmap on localhost using Websocket
  - [kof.js](kof.js) - bridges openfin's [IAB](http://cdn.openfin.co/jsdocs/stable/fin.desktop.InterApplicationBus.html) and kdb+ pub+sub using Websocket
    - finds available subscriptions in kdb+, publishes symbols on topic "k"
    - listens for openfin IAB subs and forwards these to kdb over a Websocket
