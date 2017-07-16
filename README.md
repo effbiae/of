@@ -3,13 +3,13 @@
  is a bridge between [Openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in Openfin, using pub+sub.
 
 ## Contents
- - A bridge bewteen Openfin and kdb+  ([kof.js](kof.js))
+ - A bridge bewteen Openfin and kdb+  ([ws.js](ws.js), [kof.js](kof.js))
    - uses a Websocket to kdb+
    - finds available subscriptions in kdb+, publishes symbols on topic "k"
    - listens for Openfin IAB subs and forwards these to kdb over a Websocket
    - listens for kdb+ pubs and publishes to the Openfin IAB
    - [option] kdb+ requests sub on IAB and [kof.js](kof.js) sends any matching pubs
- - HTML5 canvas heat map demo with kdb+ ([hm.htm](hm.htm), [hm.js](hm.js), [hm.q](hm.q))
+ - HTML5 canvas heat map demo with kdb+ ([hm.htm](hm.htm), [hm.js](hm.js), [hm.q](hm.q), [ws.js](ws.js))
    - hosted locally using kdb+ server for http and Websocket
  - An example Openfin site using the heat map demo ([index.htm](index.htm), [app.json](app.json))
    - an Openfin headless app that opens [hm.htm](hm.htm)
