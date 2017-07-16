@@ -18,23 +18,27 @@ define(`nl',`
 ')
 define(`_C',`nl _c')
 define(`NAME',`kdb-openfin')
+define(`Of',`Openfin')
 define(`Name',`*NAME*')
 define(`iab',`[IAB](http://cdn.openfin.co/jsdocs/stable/fin.desktop.InterApplicationBus.html)')
 divert(1)dnl
 # Introduction
 Name (or *openfink*, *kdb+openfin*, *kopenfin*) 
- is a bridge between [openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in openfin, using pub+sub.
+ is a bridge between [Of](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in Of, using pub+sub.
 
 ## Contents
- - hmht, hmjs, hmq - an example HTML5 heatmap on localhost using Websocket
- - kofjs - bridges openfin's iab and kdb+ pub+sub using Websocket
+ - A bridge bewteen Of and kdb+  (kofjs)
+   - uses a Websocket to kdb+
    - finds available subscriptions in kdb+, publishes symbols on topic "k"
-   - listens for openfin IAB subs and forwards these to kdb over a Websocket
-   - listens for kdb+ pubs and publishes to the openfin iab
+   - listens for Of IAB subs and forwards these to kdb over a Websocket
+   - listens for kdb+ pubs and publishes to the Of IAB
    - [option] kdb+ requests sub on IAB and kofjs sends any matching pubs
- - ixht, appjson - an openfin headless app that opens hmht
-   - ixht uses kofjs to interface to the iab
-   - hmht uses the IAB rather than a Websocket to get heat
+ - Simple HTML5 canvas heat map demo with kdb+ (hmht, hmjs, hmq)
+   - hosted locally using kdb+ server for http and Websocket
+ - An example Of site using the heat map demo (ixht, appjson)
+   - an Of headless app that opens hmht
+   - ixht uses kofjs to interface Of
+   - hmht uses the iab rather than a Websocket to get heat values
 
 ## Background
 
@@ -44,18 +48,18 @@ define(`cjs',`https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js')dnl
 # Use
 Get [c.js](cjs) eg. 
 _c$ curl -o c.js cjs _C
-Run q on port POrt with hmq.  openfin needs the q webserver and openfin apps need Websocket server.
+Run q on port POrt with hmq.  Of needs the q webserver and Of apps need Websocket server.
 
 The one second timer (ti(-t 1000)) is for pub+sub
 _c$ q Hmq -p POrt -t 1000 _C
 Open hmht in a browser that supports Websocket.  eg.
 _c$ google-chrome http://localhost:POrt/Hmht _C
-## openfin 
-Install ti(openfin) if not installed
+## Of 
+Install ti(Of) if not installed
 _c$ npm install -g openfin-cli _C
 Run q as in the previous example (if not still running)
 _c$ q Hmq -p POrt -t 1000 _C
-Run openfin with appjson 
+Run Of with appjson 
 _c$ openfin -l -c app.json _C
 @index.htm
 <!--script src="kof.js"></script-->
@@ -80,7 +84,7 @@ function hm()
 <script src="hm.js"></script>
 <script>document.addEventListener("DOMContentLoaded",hmtest);
  /*
- //define onpub for both websocket and openfin
+ //define onpub for both websocket and Of
  var onpub;
  document.addEventListener("DOMContentLoaded", function(){ init(); });
  function openfin()
