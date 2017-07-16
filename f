@@ -2,6 +2,7 @@
 divert(-1)dnl
 define(`Lsrc',`[$1]($1)')
 define(`kofjs',`Lsrc(kof.js)')
+define(`hmjs',`Lsrc(hm.js)')
 define(`Ixht', `index.htm')
 define(`Hmht', `hm.htm')
 define(`ixht', `Lsrc(Ixht)')
@@ -24,7 +25,7 @@ Name (or *openfink*, *kdb+openfin*, *kopenfin*)
  is a bridge between [openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in openfin, using pub+sub.
 
 ## Contents
- - hmht, hmq - an example HTML5 heatmap on localhost using Websocket
+ - hmht, hmjs, hmq - an example HTML5 heatmap on localhost using Websocket
  - kofjs - bridges openfin's iab and kdb+ pub+sub using Websocket
    - finds available subscriptions in kdb+, publishes symbols on topic "k"
    - listens for openfin IAB subs and forwards these to kdb over a Websocket
