@@ -135,7 +135,7 @@ cd public
 openfin -l -c app.json 
 cd ..
 @up
-./gen && git add gen up `grep ^@ f |cut -b2-` && git commit -m 'x' && git push -u origin master
+./gen && git add gen up ti(grep ^@ f |cut -b2-) && git commit -m 'x' && git push -u origin master
 @app.json
 {
     "startup_app": {

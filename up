@@ -1,1 +1,1 @@
-./gen && git add gen up grep ^@ f |cut -b2-` && git commit -m 'x && git push -u origin master
+./gen && git add gen up `grep ^@ f |cut -b2-` && git commit -m 'x' && git push -u origin master
