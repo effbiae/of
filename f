@@ -167,5 +167,8 @@ cd ..
     },
     "shortcut": {}
 }
+@kof.js
+(function(){ "use strict";
+})();
 @up
 make && git add makefile ti(grep ^@ f |cut -b2-) && git commit -m 'x' && git push -u origin master
