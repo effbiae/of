@@ -33,7 +33,7 @@ Name (or *openfink*, *kdb+openfin*, *kopenfin*)
    - listens for Of IAB subs and forwards these to kdb over a Websocket
    - listens for kdb+ pubs and publishes to the Of IAB
    - [option] kdb+ requests sub on IAB and kofjs sends any matching pubs
- - Simple HTML5 canvas heat map demo with kdb+ (hmht, hmjs, hmq)
+ - HTML5 canvas heat map demo with kdb+ (hmht, hmjs, hmq)
    - hosted locally using kdb+ server for http and Websocket
  - An example Of site using the heat map demo (ixht, appjson)
    - an Of headless app that opens hmht
