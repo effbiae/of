@@ -86,7 +86,7 @@ var wscon,wsset,wsget;
   wsset=function(w,x,f,g){w.onmessage=f;w.onerror=g;return w.send(x);};
   wscon=function(f)
   {var l=window.location,w=new WebSocket("ws://"+(l.hostname||"localhost")+":"+(l.port||"POrt")+"/");
-   f("connecting...");w.onopen=f;w.onclose=f;return wsset(w,f,f);
+   f("connecting...");w.onopen=f;w.onclose=f;return w;
   };
   wsget=function(w,x){return new Promise((f,g)=>{wsset(w,x,f,g)});};
  }
