@@ -9,6 +9,7 @@ define(`ixht', `Lsrc(Ixht)')
 define(`hmht', `Lsrc(Hmht)')
 define(`Hmq',  `hm.q')
 define(`hmq',  `Lsrc(Hmq)')
+define(`POrt', `5000')
 define(`appjson',`Lsrc(app.json)')
 define(`ti',    changequote([,])[changequote([,])`$1`changequote(`,')]changequote(`,'))
 define(`_c',changequote([,])[changequote([,])```
@@ -43,17 +44,17 @@ define(`cjs',`https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js')dnl
 # Use
 Get [c.js](cjs) eg. 
 _c$ curl -o c.js cjs _C
-Run q on port 5000 with hmq.  openfin needs the q webserver and openfin apps need Websocket server.
+Run q on port POrt with hmq.  openfin needs the q webserver and openfin apps need Websocket server.
 
 The one second timer (ti(-t 1000)) is for pub+sub
-_c$ q Hmq -p 5000 -t 1000 _C
+_c$ q Hmq -p POrt -t 1000 _C
 Open hmht in a browser that supports Websocket.  eg.
-_c$ google-chrome http://localhost:5000/Hmht _C
+_c$ google-chrome http://localhost:POrt/Hmht _C
 ## openfin 
 Install ti(openfin) if not installed
 _c$ npm install -g openfin-cli _C
 Run q as in the previous example (if not still running)
-_c$ q Hmq -p 5000 -t 1000 _C
+_c$ q Hmq -p POrt -t 1000 _C
 Run openfin with appjson 
 _c$ openfin -l -c app.json _C
 @index.htm
@@ -87,7 +88,7 @@ function hm()
  }
  function wsconnect()
  {if ("WebSocket" in window)
-  {var l=window.location,ws=new WebSocket("ws://"+(l.hostname||"localhost")+":"+(l.port||"5000")+"/");function wL(x){console.Log(x);}
+  {var l=window.location,ws=new WebSocket("ws://"+(l.hostname||"localhost")+":"+(l.port||"POrt")+"/");function wL(x){console.Log(x);}
    wL("connecting...");
    ws.onopen=function(e){wL("connected");} ws.onclose=function(e){wL("disconnected");} ws.onmessage=function(e){wL(e.data);} ws.onerror=function(e){wL(e.data);}
    return ws;
@@ -149,7 +150,7 @@ cd ..
 @app.json
 {
     "startup_app": {
-        "url": "http://localhost:5000/index.htm",
+        "url": "http://localhost:POrt/index.htm",
         "name": "hm",
         "uuid": "hm",
         "autoShow": true
