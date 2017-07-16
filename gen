@@ -1,3 +1,2 @@
 #!/bin/bash
-awk 'NF==1 && sub(/^@/,""){f=$0; next} {print > f}' f
-m4 readme.m4 >README.md
+m4 f| awk 'NF==1 && sub(/^@/,""){f=$0; next} {print > f}'

@@ -1,4 +1,3 @@
-
 # Introduction
 *kdb-openfin* (or *openfink*, *kdb+openfin*, *kopenfin*) 
  is a bridge between [openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in openfin, using pub+sub.
@@ -25,7 +24,8 @@ $ curl -o c.js https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js
  ```
 
 Run q on port 5000 with [hm.q](hm.q).  openfin needs the q webserver and openfin apps need Websocket server.
-The one second timer is for pub+sub
+
+The one second timer (`-t 1000`) is for pub+sub
 ```
 $ q hm.q -p 5000 -t 1000 
  ```
