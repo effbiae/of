@@ -154,17 +154,8 @@ openfin -l -c app.json
 cd ..
 @app.json
 {
-    "startup_app": {
-        "url": "http://localhost:POrt/index.htm",
-        "name": "hm",
-        "uuid": "hm",
-        "autoShow": true
-    },
-    "runtime": {
-        "version": "6.49.20.22",
-        "forcelatest": true,
-        "arguments": ""
-    },
+    "startup_app": { "url": "http://localhost:POrt/index.htm", "name": "hm", "uuid": "hm", "autoShow": true },
+    "runtime": { "version": "6.49.20.22", "forcelatest": true, "arguments": "" },
     "shortcut": {}
 }
 @kof.js
