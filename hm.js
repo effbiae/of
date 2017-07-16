@@ -21,6 +21,11 @@ var hmtest, hmini, hmupd;
         return x < 0 ? y.slice(0, x) : y.slice(x, y.length);
     }
 
+    function reversed(x) {
+        var r = [].concat(x).reverse();
+        return r;
+    }
+
     function fr(x, r, c) {
         x.fillStyle = 'rgb(' + c.map(Math.round).join() + ')';
         x.fillRect.apply(x, r);
@@ -67,10 +72,10 @@ var hmtest, hmini, hmupd;
                 fr(g, y[0], y[1]);
             });
         });
-        var Tx = til(n - 1).map(function (x) {
+        var Tx = til(n).map(function (x) {
             tx(g, a[x], [floor(x * rw) + o[0] + 10, o[1] - 10], 12, [50, 0, 100]);
         });
-        var Ty = til(n - 1).map(function (y) {
+        var Ty = til(n).map(function (y) {
             tx(g, b[y], [10, floor(y * rh) + 10 + o[1] + 15], 12, [50, 0, 100]);
         });
         tx(g, name, [80, 30], 20, [0, 0, 0]);
@@ -87,7 +92,7 @@ var hmtest, hmini, hmupd;
     hmtest = function () {
         var a = "GBP USD EUR JPY CHF CAD AUD NZD".split(" "),
             n = a.length - 1;
-        hmini("Currency Pair Volatility", drop(a, -1), drop(a, 1), cs(n));
+        hmini("Currency Pair Volatility", drop(-1, a), reversed(drop(1, a)), cs(n));
         til(n).map(function (x) {
             til(n).map(function (y) {
                 hmupd(x, y, rand(n));
