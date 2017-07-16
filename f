@@ -74,60 +74,44 @@ function hm()
 }
 </script>
 @hm.htm
-<html><head><title>fsb</title>
-<style type="text/css">canvas{}</style>
-<script type="text/javascript">
+<html><head><title>Heat Map</title>
+<script src="hm.js"></script>
+<script>document.addEventListener("DOMContentLoaded",hmtest);</script></head>
+<body><canvas id="canvas" width="512"></canvas></body></html>
+@hm.js
+define(`_',`ignore')
+var hmtest,hmini,hmupd;
+          (function(){ "use strict";
 function take(x,y){var r=[];if(x>0){r[x-1]=0;r.fill(y,0,x);}return r;}
-function til(x){var r=[];return take(x,0).map(function(v,i,a){return i;});}
-function L(x){console.log(x);}
-function `len'(x){return x.length;}
+function til(x){return take(x,0).map(function(_,i){return i;});}
 function drop(x,y){return y<0?x.slice(0,y):x.slice(y,x.length);}
-function rank(x){return til(x.length).sort(function(a,b){return x[a]-x[b];});}
-function apply(x,y){return til(x.length).map(function(i){return x[y[i]];});}
-function find(X,y){return X.findIndex(y);}
-function sho(x){console.log(x);return x;}
-R=Math.round;F=Math.floor;
-function fr(x,r,c){x.fillStyle='rgb('+c.map(R).join()+')';x.fillRect.apply(x,r);return x;}
+function fr(x,r,c){x.fillStyle='rgb('+c.map(Math.round).join()+')';x.fillRect.apply(x,r);return x;}
 function tx(x,t,p,z,c){x.fillStyle='rgb('+c.join()+')';x.font=z+'px sans';x.fillText(t,p[0],p[1]);return x;}
-function rani(x){return F(Math.random()*x);}
-function rand(x){return x[rani(x.length)];}
-function draw(){
-  var u="GBP USD EUR JPY CHF CAD AUD NZD".split(" "),c=document.getElementById('canvas');
-  if(c.getContext){
-   var g=c.getContext('2d');
-   var w=512;c.width=w;c.height=w;
-   var n=u.length;var o=[50,70];var rw=(w-o[0])/n,rh=(w-o[1])/n;
-   var v=cs(5);
-   var G=til(n).map(function(x){return til(n).map(function(y){var X=n-x-1;return X>y?[rand(v),F(x*rw)+o[0],F(y*rh+o[1]),F(rw-1),F(rh-1)]:[];})});
-   G.map(function(x){x.map(function(y){y.length?fr(g,y.slice(1),y[0]):0;})});
-   var Tx=til(n-1).map(function(x){tx(g,u[x],[F(x*rw)+o[0]+10,o[1]-10],12,[50,0,100]);});
-   var Ty=til(n-1).map(function(y){tx(g,u[n-1-y],[10,F(y*rh)+10+o[1]+15],12,[50,0,100]);});
-   tx(g,"Currency Pair Volatility",[80,30],20,[0,0,0]);
-}}
+var floor=Math.floor;
+function rand(x){return floor(Math.random()*x);}
 /*the hm api requires the user to
    - hmini(name,xlabels,ylabels,colors) to name the hm and label the axes and set the palette (colors)
    - hmupd(x,y,color-index) to update the values
 */
-var G,g,p; //p is pallette
-function hmini(na,a,b,c){
-  var e=document.getElementById('canvas');if(e.getContext)g=e.getContext('2d');else throw new Error("no 2d context");
-  var w=e.height=e.width||512;L('w'+w);
+var G,g,p; //p is palette
+hmini=function(name,a,b,c){
+  var e=document.getElementById('canvas');g=e.getContext('2d');//will throw error if no canvas in browser
+  var w=e.height=e.width||512;
   p=c;
-  n=a.length;if(n!=b.length)throw new Error("mismatch");var o=[50,70],rw=(w-o[0])/n,rh=(w-o[1])/n;
-  G=til(n).map(function(x){return til(n).map(function(y){return [[F(x*rw)+o[0],F(y*rh+o[1]),F(rw-1),F(rh-1)],c[0]];})});
-  G.map(function(x){x.map(function(y){fr(g,y[0],y[1]);})});
-  var Tx=til(n-1).map(function(x){tx(g,a[x],[F(x*rw)+o[0]+10,o[1]-10],12,[50,0,100]);});
-  var Ty=til(n-1).map(function(y){tx(g,b[y],[10,F(y*rh)+10+o[1]+15],12,[50,0,100]);});
-  tx(g,na,[80,30],20,[0,0,0]);
-}
-function hmupd(x,y,z){fr(g,G[x][y][0],p[z]);}
+  var n=a.length;if(n!=b.length){throw new Error("mismatch");}var o=[50,70],rw=(w-o[0])/n,rh=(w-o[1])/n;
+  G=til(n).map(function(x){return til(n).map(function(y){return [[(x*rw)+o[0],y*rh+o[1],rw-1,rh-1].map(floor),c[0]];});});
+  G.map(function(x){x.map(function(y){fr(g,y[0],y[1]);});});
+  var Tx=til(n-1).map(function(x){tx(g,a[x],[floor(x*rw)+o[0]+10,o[1]-10],12,[50,0,100]);});
+  var Ty=til(n-1).map(function(y){tx(g,b[y],[10,floor(y*rh)+10+o[1]+15],12,[50,0,100]);});
+  tx(g,name,[80,30],20,[0,0,0]);
+};
+hmupd=function(x,y,z){fr(g,G[x][y][0],p[z]);};
 function cs(w){return til(w).map(function(x){return[x>w/2?256/w*x:0,0,x<=w/2?256/w*(x+w/2):0];});}
-function hmtest(){
+hmtest=function(){
   var a="GBP USD EUR JPY CHF CAD AUD NZD".split(" "),n=a.length-1;
   hmini("Currency Pair Volatility",drop(a,-1),drop(a,1),cs(n));
-  til(n).map(function(x){til(n).map(function(y){hmupd(x,y,rani(n));});});
-}
-document.addEventListener("DOMContentLoaded",hmtest);
+  til(n).map(function(x){til(n).map(function(y){hmupd(x,y,rand(n));});});
+};
 /*
 //define onpub for both websocket and openfin
 var onpub;
@@ -150,11 +134,7 @@ function init()
  fail()
 }
 */
-</script></head>
-
-<!--body onload="draw();"><canvas id="canvas" width=512></canvas></body-->
-<body><canvas id="canvas" width="512"></canvas></body>
-</html>
+              })(); //use strict 'closure'
 @hm.q
 .h.HOME:first system"pwd"
 @s.sh
@@ -164,8 +144,6 @@ unzip tmpl.zip
 cd public
 openfin -l -c app.json 
 cd ..
-@up
-./gen && git add gen up ti(grep ^@ f |cut -b2-) && git commit -m 'x' && git push -u origin master
 @app.json
 {
     "startup_app": {
@@ -181,3 +159,5 @@ cd ..
     },
     "shortcut": {}
 }
+@up
+make && git add makefile ti(grep ^@ f |cut -b2-) && git commit -m 'x' && git push -u origin master
