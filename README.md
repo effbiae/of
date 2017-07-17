@@ -1,6 +1,6 @@
 # Introduction
 *kdb-openfin* (or *openfink*, *kdb+openfin*, *kopenfin*) 
- is a bridge between [Openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 heat map window running in Openfin.
+ is a bridge between [Openfin](http://openfin.co/) and kdb+ using pubsub.  It includes an HTML5 heat map widget running in Openfin.
 
 ![Heat map](hm.png)
 *NB clearly random and contradictory*
@@ -31,7 +31,7 @@ $ curl -o c.js https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js
 
 Run q on port 5000 with [hm.q](hm.q).  Openfin needs the q webserver and Openfin apps need Websocket server.
 
-The one second timer (`-t 1000`) is for pub+sub
+The one second timer (`-t 1000`) is for pubsub
 ```
 $ q hm.q -p 5000 -t 1000 
  ```
