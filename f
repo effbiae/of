@@ -29,10 +29,13 @@ H1(Introduction)
 Name (or *openfink*, *kdb+openfin*, *kopenfin*) 
  is a bridge between [Of](http://openfin.co/) and kdb+ using pubsub.  It includes an HTML5 heat map widget running in Of.
 
-![Heat map](hm.png)
-*NB clearly random and contradictory*
+![Heat map](hm.png)*NB clearly random and contradictory*
 
-H2(Contents)
+H2(Requirements)
+ - kdb+ v3.3 or later (for .z.wo)
+ - node (to install openfin)
+
+H2(Source)
  - A bridge bewteen Of and kdb+  (wsjs, kofjs)
    - uses a Websocket to kdb+
    - finds available subscriptions in kdb+, publishes symbols on topic "k"
@@ -86,9 +89,6 @@ function hm()
 }
 </script>
 @ws.js
-/*
-**  maybe send([n,x]) and buffer responses until message matching [n,...] is sent
-*/
 var wscon,wsset,wsget;
 (function(){
   function L(x){console.log(x);}
@@ -166,7 +166,9 @@ var hmtest,hmini,hmupd;
  };
 })();
 @hm.q
-.h.HOME:first system"pwd"
+.h.HOME:first system$[.z.o in`w32`w64;"cd";"pwd"]
+a:`$" "vs"GBP USD EUR JPY CHF CAD AUD NZD"
+/.z.wo: .z.wc: .z.ws: .z.ts
 @s.sh
 rm -rI public tmpl.zip
 curl http://cdn.openfin.co.s3-website-us-east-1.amazonaws.com/templates/OfTemplate.zip -otmpl.zip
@@ -188,5 +190,9 @@ var kof;
   if("Websocket" in window) wsconnect(); else
  }
 })();
+@get
+rm -f u.q c.js
+wget https://raw.githubusercontent.com/KxSystems/kdb-tick/master/tick/u.q
+wget https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js 
 @up
 make && git add makefile ti(grep ^@ f |cut -b2-) && git commit -m 'x' && git push -u origin master
