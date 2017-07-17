@@ -194,5 +194,5 @@ var kof;
 rm -f u.q c.js
 wget https://raw.githubusercontent.com/KxSystems/kdb-tick/master/tick/u.q
 wget https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js 
-@up
+@u
 make && git add makefile ti(grep ^@ f |cut -b2-) && git commit -m 'x' && git push -u origin master
