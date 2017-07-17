@@ -3,6 +3,7 @@
  is a bridge between [Openfin](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 heat map window running in Openfin.
 
 ![Heat map](hm.png)
+*NB clearly random and contradictory*
 
 ## Contents
  - A bridge bewteen Openfin and kdb+  ([ws.js](ws.js), [kof.js](kof.js))
