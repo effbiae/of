@@ -38,8 +38,8 @@ Open [hm.htm](hm.htm) in a browser that supports Websocket.  eg.
 $ google-chrome http://localhost:5000/hm.htm 
  ```
 
-## Of 
-Install `Openfin` if not installed
+## Openfin
+Install Openfin if not installed
 ```
 $ npm install -g openfin-cli 
  ```

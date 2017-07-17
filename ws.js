@@ -1,3 +1,6 @@
+/*
+**  maybe send([n,x]) and buffer responses until message matching [n,...] is sent
+*/
 var wscon,wsset,wsget;
 (function(){
   function L(x){console.log(x);}
