@@ -27,7 +27,7 @@ define(`iab',`[IAB](http://cdn.openfin.co/jsdocs/stable/fin.desktop.InterApplica
 divert(1)dnl
 H1(Introduction)
 Name (or *openfink*, *kdb+openfin*, *kopenfin*) 
- is a bridge between [Of](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 heat map window running in Of.
+ is a bridge between [Of](http://openfin.co/) and kdb+ using pubsub.  It includes an HTML5 heat map widget running in Of.
 
 ![Heat map](hm.png)
 *NB clearly random and contradictory*
@@ -56,7 +56,7 @@ Get [c.js](cjs) eg.
 _c$ curl -o c.js cjs _C
 Run q on port POrt with hmq.  Of needs the q webserver and Of apps need Websocket server.
 
-The one second timer (ti(-t 1000)) is for pub+sub
+The one second timer (ti(-t 1000)) is for pubsub
 _c$ q Hmq -p POrt -t 1000 _C
 Open hmht in a browser that supports Websocket.  eg.
 _c$ google-chrome http://localhost:POrt/Hmht _C
