@@ -30,6 +30,7 @@ Name (or *openfink*, *kdb+openfin*, *kopenfin*)
  is a bridge between [Of](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 heat map window running in Of.
 
 ![Heat map](hm.png)
+*NB clearly random and contradictory*
 
 H2(Contents)
  - A bridge bewteen Of and kdb+  (wsjs, kofjs)
