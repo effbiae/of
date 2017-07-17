@@ -27,7 +27,9 @@ define(`iab',`[IAB](http://cdn.openfin.co/jsdocs/stable/fin.desktop.InterApplica
 divert(1)dnl
 H1(Introduction)
 Name (or *openfink*, *kdb+openfin*, *kopenfin*) 
- is a bridge between [Of](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in Of, using pub+sub.
+ is a bridge between [Of](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 heat map window running in Of.
+
+![Heat map](hm.png)
 
 H2(Contents)
  - A bridge bewteen Of and kdb+  (wsjs, kofjs)
