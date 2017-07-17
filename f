@@ -1,5 +1,7 @@
 @README.md
 divert(-1)dnl
+define(`H1',`# $1')
+define(`H2',`## $1')
 define(`Lsrc',`[$1]($1)')
 define(`kofjs',`Lsrc(kof.js)')
 define(`wsjs',`Lsrc(ws.js)')
@@ -23,11 +25,11 @@ define(`Of',`Openfin')
 define(`Name',`*NAME*')
 define(`iab',`[IAB](http://cdn.openfin.co/jsdocs/stable/fin.desktop.InterApplicationBus.html)')
 divert(1)dnl
-# Introduction
+H1(Introduction)
 Name (or *openfink*, *kdb+openfin*, *kopenfin*) 
  is a bridge between [Of](http://openfin.co/) and kdb+ using pub+sub.  It includes a demo showing an HTML5 app running in Of, using pub+sub.
 
-## Contents
+H2(Contents)
  - A bridge bewteen Of and kdb+  (wsjs, kofjs)
    - uses a Websocket to kdb+
    - finds available subscriptions in kdb+, publishes symbols on topic "k"
@@ -41,12 +43,12 @@ Name (or *openfink*, *kdb+openfin*, *kopenfin*)
    - ixht uses kofjs to interface Of
    - hmht uses the iab rather than a Websocket to get heat values
 
-## Background
+H2(Background)
 
  [openfin/app-bootstrap](https://github.com/openfin/app-bootstrap)
 
 define(`cjs',`https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js')dnl
-# Use
+H1(Use)
 Get [c.js](cjs) eg. 
 _c$ curl -o c.js cjs _C
 Run q on port POrt with hmq.  Of needs the q webserver and Of apps need Websocket server.
@@ -55,8 +57,8 @@ The one second timer (ti(-t 1000)) is for pub+sub
 _c$ q Hmq -p POrt -t 1000 _C
 Open hmht in a browser that supports Websocket.  eg.
 _c$ google-chrome http://localhost:POrt/Hmht _C
-## Of 
-Install ti(Of) if not installed
+H2(Of)
+Install Of if not installed
 _c$ npm install -g openfin-cli _C
 Run q as in the previous example (if not still running)
 _c$ q Hmq -p POrt -t 1000 _C
@@ -81,6 +83,9 @@ function hm()
 }
 </script>
 @ws.js
+/*
+**  maybe send([n,x]) and buffer responses until message matching [n,...] is sent
+*/
 var wscon,wsset,wsget;
 (function(){
   function L(x){console.log(x);}
