@@ -1,0 +1,3 @@
+rm -f u.q c.js
+wget https://raw.githubusercontent.com/KxSystems/kdb-tick/master/tick/u.q
+wget https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js 
