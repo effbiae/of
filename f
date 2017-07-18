@@ -78,13 +78,10 @@ _c$ openfin -l -c app.json _C
 <script src="c.js"></script>
 <script src="kof.js"></script>
 <script>
-var run;
-(function(){ "use strict";
-  run=function(){
-    var l=window.location,h=l.hostname||"localhost",p=l.port||"POrt";
-    wshot(h,p,"til 6").then(x=>console.log(x));
-  }
-})();
+function run(){ "use strict";
+ var l=window.location,h=l.hostname||"localhost",p=l.port||"POrt";
+ wshot(h,p,"til 6").then(x=>console.log(x));
+}
 document.addEventListener("DOMContentLoaded",run);
 </script>
 <!--script>
