@@ -37,12 +37,12 @@ H2(Requirements)
 H2(Source)
  - A bridge bewteen Of and kdb+  (kofjs)
    - uses a Websocket to kdb+
-   - finds available subscriptions in kdb+, publishes symbols on topic "k"
+   - finds subscriptions provided by kdb+, publishes those names to the Of iab (topic "k")
    - listens for Of IAB subs and forwards these to kdb over a Websocket
    - listens for kdb+ pubs and publishes to the Of IAB
    - [option] kdb+ requests sub on IAB and kofjs sends any matching pubs
- - HTML5 canvas heat map demo with kdb+ (ixht, hmjs, hmq, kofjs, appjson)
-   - an Of headless app that opens hmht
+ - HTML5 canvas heat map demo on Of with kdb+  (ixht, hmjs, hmq, kofjs, appjson)
+   - an Of headless app that opens ixht (see appjson)
    - hosted locally using kdb+ server for http and Websocket
    - ixht uses kofjs to interface Of
 
