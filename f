@@ -61,17 +61,16 @@ Kx libraries required:
 on unix, use the Get script:
 _c$ . get _C
 
-Run q on port POrt with hmq.  Of needs the q webserver and Of apps need Websocket server.
+Install Of if not installed
+_c$ npm install -g openfin-cli _C
+
+Run q on port POrt with hmq.
+  - Of needs the kdb+ http httpserver to deliver ixht
+  - Of apps (in this case, the heat map demo) need the kdb+ Websocket server.
 
 The one second timer (ti(-t 1000)) is for pubsub
 _c$ q Hmq -p POrt -t 1000 _C
-Open hmht in a browser that supports Websocket.  eg.
-_c$ google-chrome http://localhost:POrt/Hmht _C
-H2(Of)
-Install Of if not installed
-_c$ npm install -g openfin-cli _C
-Run q as in the previous example (if not still running)
-_c$ q Hmq -p POrt -t 1000 _C
+
 Run Of with appjson 
 _c$ openfin -l -c app.json _C
 @index.htm
