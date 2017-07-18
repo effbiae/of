@@ -162,13 +162,12 @@ var ocon,opub,wscon,wsset,wsget,wsclo;
   {var l=window.location,w=new WebSocket("ws://"+(l.hostname||"localhost")+":"+(l.port||"POrt")+"/");
    f("connecting...");w.onopen=f;w.onclose=f;return w;
   };
-  wsget=function(w,x){return new Promise((f,g)=>{wsset(w,x,f,g)});};
-  wsclo=function(w){w.close();}
- }
- ocon=function(x)
- {if("fin"       in window) openfin();
-  else wscon(L);
- }
+  wsget=function(w,x){return new Promise(function(f,g){return wsset(w,x,f,g);});};
+  wsclo=function(w){w.close();};
+  ocon=function(x)
+  {if("fin"       in window) openfin();
+   else wscon(L);
+  };
 })();
 @get
 rm -f u.q c.js
