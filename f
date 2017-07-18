@@ -35,7 +35,7 @@ H2(Requirements)
  - Node npm (to install openfin)
 
 H2(Source)
- - A bridge bewteen Of and kdb+  (kofjs)
+ - A bridge between Of and kdb+  (kofjs)
    - uses a Websocket to kdb+
    - finds subscriptions provided by kdb+, publishes those names to the Of iab (topic "k")
    - listens for Of IAB subs and forwards these to kdb over a Websocket
