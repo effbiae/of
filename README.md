@@ -1,14 +1,12 @@
 # Introduction
 *kof* is a bridge between [Openfin](http://openfin.co/) and kdb+ using pubsub.  It includes an HTML5 heat map widget running in Openfin.
 
-![Heat map](hm.png)*NB clearly random and contradictory*
-
 ## Requirements
  - kdb+ v3.3 or later (for .z.wo)
  - Node npm (to install openfin)
 
 ## Source
- - A bridge bewteen Openfin and kdb+  ([kof.js](kof.js))
+ - A bridge between Openfin and kdb+  ([kof.js](kof.js))
    - uses a Websocket to kdb+
    - finds subscriptions provided by kdb+, publishes those names to the Openfin [IAB](http://cdn.openfin.co/jsdocs/stable/fin.desktop.InterApplicationBus.html) (topic "k")
    - listens for Openfin IAB subs and forwards these to kdb over a Websocket
@@ -54,4 +52,7 @@ Run Openfin with [app.json](app.json)
 ```
 $ openfin -l -c app.json 
  ```
+
+
+![Heat map](hm.png)*NB still random and contradictory*
 
