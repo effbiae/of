@@ -74,8 +74,7 @@ _c$ openfin -l -c app.json _C
 ![Heat map](hm.png)*NB still random and contradictory*
 
 @index.htm
-<html><head><title>Openfin Heat Map demo</title>
-<script src="hm.js"></script>
+<html><head><title>headless</title>
 <script src="kof.js"></script>
 <script>
 L=function(x){return console.log(x);}
@@ -92,7 +91,11 @@ function hm()
 }, () => { L("The window has successfully been created"); },
    () => { L("Error creating window"); });
 }
-</script>
+</script></head><body></body><.html>
+@hm.htm
+<html><head><title>Openfin Heat Map Demo</title>
+<script src="hm.js"></script>
+<script src="kof.js"></script>
 <script>document.addEventListener("DOMContentLoaded",hmtest);</script></head>
 <body><canvas id="canvas" width="512"></canvas></body></html>
 @hm.js
