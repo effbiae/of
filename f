@@ -25,26 +25,26 @@ define(`Of',`Openfin')
 define(`Name',`*NAME*')
 define(`iab',`[IAB](http://cdn.openfin.co/jsdocs/stable/fin.desktop.InterApplicationBus.html)')
 divert(1)dnl
-H1(Introduction)
+H1(NAME)
 Name is a bridge between [Of](http://openfin.co/) and kdb+ using pubsub.  It includes an HTML5 heat map widget running in Of.
 
 H2(Requirements)
  - kdb+ v3.3 or later (for .z.wo)
  - Node npm (to install openfin)
 
-H2(Source)
- - A bridge between Of and kdb+  (kofjs)
+H2(Overview)
+ - Name is a bridge between Of and kdb+  (kofjs)
    - uses a Websocket to kdb+
    - finds subscriptions provided by kdb+, publishes those names to the Of iab (topic "k")
    - listens for Of IAB subs and forwards these to kdb over a Websocket
    - listens for kdb+ pubs and publishes to the Of IAB
    - [option] kdb+ requests sub on IAB and kofjs sends any matching pubs
- - HTML5 canvas heat map demo on Of with kdb+  (ixht, hmjs, hmq, kofjs, appjson)
-   - an Of headless app that opens ixht (see appjson)
+ - HTML5 canvas heat map demo on Of with kdb+  (ixht, kofjs, appjson, hmht, hmjs, hmq)
+   - an Of headless [app](app.json) that loads ixht.
+   - ixht creates an Of window for hmht 
    - hosted locally using kdb+ server for http and Websocket
-   - ixht uses kofjs to interface Of
+   - ixht uses kofjs to interface Of iab
 
-H2(Background)
 
  [openfin/app-bootstrap](https://github.com/openfin/app-bootstrap)
 
@@ -91,7 +91,7 @@ function hm()
 }, () => { L("The window has successfully been created"); },
    () => { L("Error creating window"); });
 }
-</script></head><body></body><.html>
+</script></head><body></body></html>
 @hm.htm
 <html><head><title>Openfin Heat Map Demo</title>
 <script src="hm.js"></script>
@@ -154,7 +154,7 @@ cd ..
     "shortcut": {}
 }
 @kof.js
-var kof,wscon,wsset,wsget;
+var kof,wscon,wsset,wsget,wsclo;
 (function(){ "use strict";
   function L(x){console.log(x);}
   wsset=function(w,x,f,g){w.onmessage=f;w.onerror=g;return w.send(x);};
@@ -163,10 +163,11 @@ var kof,wscon,wsset,wsget;
    f("connecting...");w.onopen=f;w.onclose=f;return w;
   };
   wsget=function(w,x){return new Promise((f,g)=>{wsset(w,x,f,g)});};
+  wsclo=function(w){w.close();}
  }
  kofcon=function(x)
- {if("fin"       in window) openfin();   else
-  if("Websocket" in window) wsconnect(); else
+ {if("fin"       in window) openfin();
+  else wscon(L);
  }
 })();
 @get
