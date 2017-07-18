@@ -1,6 +1,17 @@
-<html><head><title>headless</title>
+<html><head><title>openfin headless</title>
+<script src="c.js"></script>
 <script src="kof.js"></script>
 <script>
+var run;
+(function(){ "use strict";
+  run=function(){
+    var l=window.location,h=l.hostname||"localhost",p=l.port||"5000";
+    wshot(h,p,"til 6").then(x=>console.log(x));
+  }
+})();
+document.addEventListener("DOMContentLoaded",run);
+</script>
+<!--script>
 L=function(x){return console.log(x);}
 
 function hm()
@@ -15,4 +26,4 @@ function hm()
 }, () => { L("The window has successfully been created"); },
    () => { L("Error creating window"); });
 }
-</script></head><body></body></html>
+</script--></head><body></body></html>
