@@ -20,20 +20,19 @@ changequote(`,')]changequote(`,'))
 define(`nl',`
 ')
 define(`_C',`nl _c')
-define(`NAME',`kdb-openfin')
+define(`NAME',`kof')
 define(`Of',`Openfin')
 define(`Name',`*NAME*')
 define(`iab',`[IAB](http://cdn.openfin.co/jsdocs/stable/fin.desktop.InterApplicationBus.html)')
 divert(1)dnl
 H1(Introduction)
-Name (or *openfink*, *kdb+openfin*, *kopenfin*) 
- is a bridge between [Of](http://openfin.co/) and kdb+ using pubsub.  It includes an HTML5 heat map widget running in Of.
+Name is a bridge between [Of](http://openfin.co/) and kdb+ using pubsub.  It includes an HTML5 heat map widget running in Of.
 
 ![Heat map](hm.png)*NB clearly random and contradictory*
 
 H2(Requirements)
  - kdb+ v3.3 or later (for .z.wo)
- - node (to install openfin)
+ - Node npm (to install openfin)
 
 H2(Source)
  - A bridge bewteen Of and kdb+  (kofjs)
