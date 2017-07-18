@@ -12,10 +12,11 @@
    - listens for Openfin IAB subs and forwards these to kdb over a Websocket
    - listens for kdb+ pubs and publishes to the Openfin IAB
    - [option] kdb+ requests sub on IAB and [kof.js](kof.js) sends any matching pubs
- - HTML5 canvas heat map demo on Openfin with kdb+  ([index.htm](index.htm), [hm.js](hm.js), [hm.q](hm.q), [kof.js](kof.js), [app.json](app.json))
-   - an Openfin headless app that opens [index.htm](index.htm) (see [app.json](app.json))
+ - HTML5 canvas heat map demo on Openfin with kdb+  ([index.htm](index.htm), [kof.js](kof.js), [app.json](app.json), [hm.htm](hm.htm), [hm.js](hm.js), [hm.q](hm.q))
+   - an Openfin headless [app](app.json) that loads [index.htm](index.htm).
+   - [index.htm](index.htm) creates an Openfin window for [hm.htm](hm.htm) 
    - hosted locally using kdb+ server for http and Websocket
-   - [index.htm](index.htm) uses [kof.js](kof.js) to interface Openfin
+   - [index.htm](index.htm) uses [kof.js](kof.js) to interface Openfin [IAB](http://cdn.openfin.co/jsdocs/stable/fin.desktop.InterApplicationBus.html)
 
 ## Background
 
