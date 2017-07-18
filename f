@@ -73,10 +73,23 @@ _c$ openfin -l -c app.json _C
 
 ![Heat map](hm.png)*NB still random and contradictory*
 
+@index.js
+var run;
+(function(){ "use strict";
+  function L(x){console.log(x);}
+  run=function(){
+    var l=window.location,h=l.hostname||"localhost",p=l.port||"POrt";
+    wshot(h,p,"til 6").then(L);
+    //hmini("Volatility",)
+  }
+})();
 @index.htm
-<html><head><title>headless</title>
+<html><head><title>openfin headless</title>
+<script src="c.js"></script>
 <script src="kof.js"></script>
-<script>
+<script src="index.js"></script>
+<script>document.addEventListener("DOMContentLoaded",run);</script>
+<!--script>
 L=function(x){return console.log(x);}
 
 function hm()
@@ -91,23 +104,36 @@ function hm()
 }, () => { L("The window has successfully been created"); },
    () => { L("Error creating window"); });
 }
-</script></head><body></body></html>
+</script--></head><body></body></html>
 @hm.htm
 <html><head><title>Openfin Heat Map Demo</title>
 <script src="hm.js"></script>
+<script src="c.js"></script>
 <script src="kof.js"></script>
-<script>document.addEventListener("DOMContentLoaded",hmtest);</script></head>
+<script src="index.js"></script>
+<script>document.addEventListener("DOMContentLoaded",run);</script></head>
 <body><canvas id="canvas" width="512"></canvas></body></html>
+@hm.q
+changequote(++,++)
+.h.HOME:first system$[.z.o in`w32`w64;"cd";"pwd"]
+a:`$" "vs"GBP USD EUR JPY CHF CAD AUD NZD"
+.z.ws:{neg[.z.w]0N!-8!0N!@[{(1;value -9!x)};x;(0;)]}
+/.z.wo: .z.wc: .z.ws: .z.ts
+changequote(`,')
 @kof.js
-var ofcon,opub,wscon,wsset,wsget,wsclo;
+var ofcon,opub,wscon,wsset,wsget,wsclo,wshot;
 (function(){ "use strict";
   function L(x){console.log(x);}
-  wsset=function(w,x,f,g){w.onmessage=f;w.onerror=g;return w.send(x);};
-  wscon=function(f)
-  {var l=window.location,w=new WebSocket("ws://"+(l.hostname||"localhost")+":"+(l.port||"POrt")+"/");
-   f("connecting...");w.onopen=f;w.onclose=f;return w;
-  };
-  wsget=function(w,x){return new Promise(function(f,g){return wsset(w,x,f,g);});};
+  wsset=function(w,x,f,g){ 
+   w.onmessage=xx=>{var d=deserialize(xx.data);if(d[0])f(d[1]);else g(d[1]);};
+   w.onerror=g;
+   return w.send(serialize(x));};
+  wscon=function(h,p){return new Promise(function(f,g){
+    var w=new WebSocket("ws://"+h+":"+p+"/");w.binaryType="arraybuffer";
+    w.onopen=()=>f(w);w.onerror=g;
+  });};
+  wsget=function(w,x){return new Promise((f,g)=>wsset(w,x,f,g));};
+  wshot=function(h,p,x){return new Promise((f,g)=>wscon(h,p).then(w=>wsget(w,x).then(x=>{wsclo(w);f(x);})).catch(g));};
   wsclo=function(w){w.close();};
   ofcon=function(x)
   {if("fin"       in window) openfin();
@@ -150,12 +176,8 @@ var hmtest,hmini,hmupd;
    til(n).map(function(x){til(n).map(function(y){hmupd(x,y,rand(n));});});
  };
 })();
-@hm.q
-changequote(++,++)
-.h.HOME:first system$[.z.o in`w32`w64;"cd";"pwd"]
-a:`$" "vs"GBP USD EUR JPY CHF CAD AUD NZD"
-/.z.wo: .z.wc: .z.ws: .z.ts
-changequote(`,')
+@.jshintrc
+{ "esversion": 6 }
 @s.sh
 rm -rI public tmpl.zip
 curl http://cdn.openfin.co.s3-website-us-east-1.amazonaws.com/templates/OfTemplate.zip -otmpl.zip
