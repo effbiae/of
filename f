@@ -98,6 +98,22 @@ function hm()
 <script src="kof.js"></script>
 <script>document.addEventListener("DOMContentLoaded",hmtest);</script></head>
 <body><canvas id="canvas" width="512"></canvas></body></html>
+@kof.js
+var ofcon,opub,wscon,wsset,wsget,wsclo;
+(function(){ "use strict";
+  function L(x){console.log(x);}
+  wsset=function(w,x,f,g){w.onmessage=f;w.onerror=g;return w.send(x);};
+  wscon=function(f)
+  {var l=window.location,w=new WebSocket("ws://"+(l.hostname||"localhost")+":"+(l.port||"POrt")+"/");
+   f("connecting...");w.onopen=f;w.onclose=f;return w;
+  };
+  wsget=function(w,x){return new Promise(function(f,g){return wsset(w,x,f,g);});};
+  wsclo=function(w){w.close();};
+  ofcon=function(x)
+  {if("fin"       in window) openfin();
+   else wscon(L);
+  };
+})();
 @hm.js
 define(`_',`ignore')
 var hmtest,hmini,hmupd;
@@ -133,22 +149,6 @@ var hmtest,hmini,hmupd;
    hmini("Currency Pair Volatility",drop(-1,a),reversed(drop(1,a)),cs(n));
    til(n).map(function(x){til(n).map(function(y){hmupd(x,y,rand(n));});});
  };
-})();
-@kof.js
-var ofcon,opub,wscon,wsset,wsget,wsclo;
-(function(){ "use strict";
-  function L(x){console.log(x);}
-  wsset=function(w,x,f,g){w.onmessage=f;w.onerror=g;return w.send(x);};
-  wscon=function(f)
-  {var l=window.location,w=new WebSocket("ws://"+(l.hostname||"localhost")+":"+(l.port||"POrt")+"/");
-   f("connecting...");w.onopen=f;w.onclose=f;return w;
-  };
-  wsget=function(w,x){return new Promise(function(f,g){return wsset(w,x,f,g);});};
-  wsclo=function(w){w.close();};
-  ofcon=function(x)
-  {if("fin"       in window) openfin();
-   else wscon(L);
-  };
 })();
 @hm.q
 changequote(++,++)
