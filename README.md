@@ -1,12 +1,11 @@
 # Introduction
-*kdb-openfin* (or *openfink*, *kdb+openfin*, *kopenfin*) 
- is a bridge between [Openfin](http://openfin.co/) and kdb+ using pubsub.  It includes an HTML5 heat map widget running in Openfin.
+*kof* is a bridge between [Openfin](http://openfin.co/) and kdb+ using pubsub.  It includes an HTML5 heat map widget running in Openfin.
 
 ![Heat map](hm.png)*NB clearly random and contradictory*
 
 ## Requirements
  - kdb+ v3.3 or later (for .z.wo)
- - node (to install openfin)
+ - Node npm (to install openfin)
 
 ## Source
  - A bridge bewteen Openfin and kdb+  ([kof.js](kof.js))
