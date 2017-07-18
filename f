@@ -7,6 +7,7 @@ define(`kofjs',`Lsrc(kof.js)')
 define(`hmjs',`Lsrc(hm.js)')
 define(`Ixht', `index.htm')
 define(`Hmht', `hm.htm')
+define(`Get',  `Lsrc(get)')
 define(`ixht', `Lsrc(Ixht)')
 define(`hmht', `Lsrc(Hmht)')
 define(`Hmq',  `hm.q')
@@ -51,9 +52,14 @@ H2(Background)
  [openfin/app-bootstrap](https://github.com/openfin/app-bootstrap)
 
 define(`cjs',`https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js')dnl
-H1(Use)
-Get [c.js](cjs) eg. 
-_c$ curl -o c.js cjs _C
+define(`uq', `https://raw.githubusercontent.com/KxSystems/kdb-tick/master/tick/u.q')dnl
+H1(Gettting Started)
+Kx libraries required:
+ - [c.js](cjs)
+ - [u.q](uq)
+on unix, use the Get script:
+_c$ . get _C
+
 Run q on port POrt with hmq.  Of needs the q webserver and Of apps need Websocket server.
 
 The one second timer (ti(-t 1000)) is for pubsub
@@ -169,7 +175,7 @@ var kof,wscon,wsset,wsget;
 })();
 @get
 rm -f u.q c.js
-wget https://raw.githubusercontent.com/KxSystems/kdb-tick/master/tick/u.q
-wget https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js 
+wget uq
+wget cjs
 @u
 make && git add makefile ti(grep ^@ f |cut -b2-) && git commit -m 'x' && git push -u origin master
