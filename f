@@ -4,7 +4,6 @@ define(`H1',`# $1')
 define(`H2',`## $1')
 define(`Lsrc',`[$1]($1)')
 define(`kofjs',`Lsrc(kof.js)')
-define(`wsjs',`Lsrc(ws.js)')
 define(`hmjs',`Lsrc(hm.js)')
 define(`Ixht', `index.htm')
 define(`Hmht', `hm.htm')
@@ -36,18 +35,16 @@ H2(Requirements)
  - node (to install openfin)
 
 H2(Source)
- - A bridge bewteen Of and kdb+  (wsjs, kofjs)
+ - A bridge bewteen Of and kdb+  (kofjs)
    - uses a Websocket to kdb+
    - finds available subscriptions in kdb+, publishes symbols on topic "k"
    - listens for Of IAB subs and forwards these to kdb over a Websocket
    - listens for kdb+ pubs and publishes to the Of IAB
    - [option] kdb+ requests sub on IAB and kofjs sends any matching pubs
- - HTML5 canvas heat map demo with kdb+ (hmht, hmjs, hmq, wsjs)
-   - hosted locally using kdb+ server for http and Websocket
- - An example Of site using the heat map demo (ixht, appjson)
+ - HTML5 canvas heat map demo with kdb+ (ixht, hmjs, hmq, kofjs, appjson)
    - an Of headless app that opens hmht
+   - hosted locally using kdb+ server for http and Websocket
    - ixht uses kofjs to interface Of
-   - hmht uses the iab rather than a Websocket to get heat values
 
 H2(Background)
 
