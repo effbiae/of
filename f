@@ -134,6 +134,22 @@ var hmtest,hmini,hmupd;
    til(n).map(function(x){til(n).map(function(y){hmupd(x,y,rand(n));});});
  };
 })();
+@kof.js
+var ofcon,opub,wscon,wsset,wsget,wsclo;
+(function(){ "use strict";
+  function L(x){console.log(x);}
+  wsset=function(w,x,f,g){w.onmessage=f;w.onerror=g;return w.send(x);};
+  wscon=function(f)
+  {var l=window.location,w=new WebSocket("ws://"+(l.hostname||"localhost")+":"+(l.port||"POrt")+"/");
+   f("connecting...");w.onopen=f;w.onclose=f;return w;
+  };
+  wsget=function(w,x){return new Promise(function(f,g){return wsset(w,x,f,g);});};
+  wsclo=function(w){w.close();};
+  ofcon=function(x)
+  {if("fin"       in window) openfin();
+   else wscon(L);
+  };
+})();
 @hm.q
 changequote(++,++)
 .h.HOME:first system$[.z.o in`w32`w64;"cd";"pwd"]
@@ -153,22 +169,6 @@ cd ..
     "runtime": { "version": "6.49.20.22", "forcelatest": true, "arguments": "" },
     "shortcut": {}
 }
-@kof.js
-var ocon,opub,wscon,wsset,wsget,wsclo;
-(function(){ "use strict";
-  function L(x){console.log(x);}
-  wsset=function(w,x,f,g){w.onmessage=f;w.onerror=g;return w.send(x);};
-  wscon=function(f)
-  {var l=window.location,w=new WebSocket("ws://"+(l.hostname||"localhost")+":"+(l.port||"POrt")+"/");
-   f("connecting...");w.onopen=f;w.onclose=f;return w;
-  };
-  wsget=function(w,x){return new Promise(function(f,g){return wsset(w,x,f,g);});};
-  wsclo=function(w){w.close();};
-  ocon=function(x)
-  {if("fin"       in window) openfin();
-   else wscon(L);
-  };
-})();
 @get
 rm -f u.q c.js
 wget uq
