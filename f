@@ -28,8 +28,6 @@ divert(1)dnl
 H1(Introduction)
 Name is a bridge between [Of](http://openfin.co/) and kdb+ using pubsub.  It includes an HTML5 heat map widget running in Of.
 
-![Heat map](hm.png)*NB clearly random and contradictory*
-
 H2(Requirements)
  - kdb+ v3.3 or later (for .z.wo)
  - Node npm (to install openfin)
@@ -72,8 +70,13 @@ _c$ q Hmq -p POrt -t 1000 _C
 
 Run Of with appjson 
 _c$ openfin -l -c app.json _C
-@index.htm
-<!--script src="kof.js"></script-->
+
+![Heat map](hm.png)*NB still random and contradictory*
+
+@Ixht
+<html><head><title>Openfin Heat Map demo</title>
+<script src="hm.js"></script>
+<script src="kof.js"></script>
 <script>
 L=function(x){return console.log(x);}
 
@@ -90,16 +93,7 @@ function hm()
    () => { L("Error creating window"); });
 }
 </script>
-@hm.htm
-<html><head><title>Heat Map</title>
-<script src="hm.js"></script>
-<script src="kof.js"></script>
-<script>document.addEventListener("DOMContentLoaded",hmtest);
- /*
- //define onpub for both websocket and Of
- var onpub;
- */
-</script></head>
+<script>document.addEventListener("DOMContentLoaded",hmtest);</script></head>
 <body><canvas id="canvas" width="512"></canvas></body></html>
 @hm.js
 define(`_',`ignore')
