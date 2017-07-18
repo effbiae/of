@@ -57,6 +57,7 @@ H1(Gettting Started)
 Kx libraries required:
  - [c.js](cjs)
  - [u.q](uq)
+
 on unix, use the Get script:
 _c$ . get _C
 
