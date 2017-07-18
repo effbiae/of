@@ -88,44 +88,14 @@ function hm()
    () => { L("Error creating window"); });
 }
 </script>
-@ws.js
-var wscon,wsset,wsget;
-(function(){
-  function L(x){console.log(x);}
-  wsset=function(w,x,f,g){w.onmessage=f;w.onerror=g;return w.send(x);};
-  wscon=function(f)
-  {var l=window.location,w=new WebSocket("ws://"+(l.hostname||"localhost")+":"+(l.port||"POrt")+"/");
-   f("connecting...");w.onopen=f;w.onclose=f;return w;
-  };
-  wsget=function(w,x){return new Promise((f,g)=>{wsset(w,x,f,g)});};
- }
-})();
 @hm.htm
 <html><head><title>Heat Map</title>
 <script src="hm.js"></script>
-<script src="ws.js"></script>
+<script src="kof.js"></script>
 <script>document.addEventListener("DOMContentLoaded",hmtest);
  /*
  //define onpub for both websocket and Of
  var onpub;
- document.addEventListener("DOMContentLoaded", function(){ init(); });
- function openfin()
- {
- }
- function wsconnect()
- {if ("WebSocket" in window)
-  {var l=window.location,ws=new WebSocket("ws://"+(l.hostname||"localhost")+":"+(l.port||"POrt")+"/");function wL(x){console.Log(x);}
-   wL("connecting...");
-   ws.onopen=function(e){wL("connected");} ws.onclose=function(e){wL("disconnected");} ws.onmessage=function(e){wL(e.data);} ws.onerror=function(e){wL(e.data);}
-   return ws;
-  }else return 0;
- }
- function openfin(){fin.desktop.main(()=>(return 1;))}
- function init()
- {if("fin"       in window) openfin();   else
-  if("Websocket" in window) wsconnect(); else
-  fail()
- }
  */
 </script></head>
 <body><canvas id="canvas" width="512"></canvas></body></html>
@@ -166,9 +136,11 @@ var hmtest,hmini,hmupd;
  };
 })();
 @hm.q
+changequote(++,++)
 .h.HOME:first system$[.z.o in`w32`w64;"cd";"pwd"]
 a:`$" "vs"GBP USD EUR JPY CHF CAD AUD NZD"
 /.z.wo: .z.wc: .z.ws: .z.ts
+changequote(`,')
 @s.sh
 rm -rI public tmpl.zip
 curl http://cdn.openfin.co.s3-website-us-east-1.amazonaws.com/templates/OfTemplate.zip -otmpl.zip
@@ -183,9 +155,17 @@ cd ..
     "shortcut": {}
 }
 @kof.js
-var kof;
+var kof,wscon,wsset,wsget;
 (function(){ "use strict";
- kof.connect=function(x)
+  function L(x){console.log(x);}
+  wsset=function(w,x,f,g){w.onmessage=f;w.onerror=g;return w.send(x);};
+  wscon=function(f)
+  {var l=window.location,w=new WebSocket("ws://"+(l.hostname||"localhost")+":"+(l.port||"POrt")+"/");
+   f("connecting...");w.onopen=f;w.onclose=f;return w;
+  };
+  wsget=function(w,x){return new Promise((f,g)=>{wsset(w,x,f,g)});};
+ }
+ kofcon=function(x)
  {if("fin"       in window) openfin();   else
   if("Websocket" in window) wsconnect(); else
  }
