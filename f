@@ -73,22 +73,20 @@ _c$ openfin -l -c app.json _C
 
 ![Heat map](hm.png)*NB still random and contradictory*
 
-@index.js
-var run;
-(function(){ "use strict";
-  function L(x){console.log(x);}
-  run=function(){
-    var l=window.location,h=l.hostname||"localhost",p=l.port||"POrt";
-    wshot(h,p,"til 6").then(L);
-    //hmini("Volatility",)
-  }
-})();
 @index.htm
 <html><head><title>openfin headless</title>
 <script src="c.js"></script>
 <script src="kof.js"></script>
-<script src="index.js"></script>
-<script>document.addEventListener("DOMContentLoaded",run);</script>
+<script>
+var run;
+(function(){ "use strict";
+  run=function(){
+    var l=window.location,h=l.hostname||"localhost",p=l.port||"POrt";
+    wshot(h,p,"til 6").then(x=>console.log(x));
+  }
+})();
+document.addEventListener("DOMContentLoaded",run);
+</script>
 <!--script>
 L=function(x){return console.log(x);}
 
