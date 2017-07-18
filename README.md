@@ -6,8 +6,7 @@
  - Node npm (to install openfin)
 
 ## Overview
-*kof* is
- - A bridge between Openfin and kdb+  ([kof.js](kof.js))
+ - *kof* is a bridge between Openfin and kdb+  ([kof.js](kof.js))
    - uses a Websocket to kdb+
    - finds subscriptions provided by kdb+, publishes those names to the Openfin [IAB](http://cdn.openfin.co/jsdocs/stable/fin.desktop.InterApplicationBus.html) (topic "k")
    - listens for Openfin IAB subs and forwards these to kdb over a Websocket
