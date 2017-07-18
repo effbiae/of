@@ -73,7 +73,7 @@ _c$ openfin -l -c app.json _C
 
 ![Heat map](hm.png)*NB still random and contradictory*
 
-@Ixht
+@index.htm
 <html><head><title>Openfin Heat Map demo</title>
 <script src="hm.js"></script>
 <script src="kof.js"></script>
