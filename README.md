@@ -35,28 +35,21 @@ $ . get
  ```
 
 
-Run q on port 5000 with [hm.q](hm.q).  Openfin needs the q webserver and Openfin apps need Websocket server.
+Install Openfin if not installed
+```
+$ npm install -g openfin-cli 
+ ```
+
+
+Run q on port 5000 with [hm.q](hm.q).
+  - Openfin needs the kdb+ http httpserver to deliver [index.htm](index.htm)
+  - Openfin apps (in this case, the heat map demo) need the kdb+ Websocket server.
 
 The one second timer (`-t 1000`) is for pubsub
 ```
 $ q hm.q -p 5000 -t 1000 
  ```
 
-Open [hm.htm](hm.htm) in a browser that supports Websocket.  eg.
-```
-$ google-chrome http://localhost:5000/hm.htm 
- ```
-
-## Openfin
-Install Openfin if not installed
-```
-$ npm install -g openfin-cli 
- ```
-
-Run q as in the previous example (if not still running)
-```
-$ q hm.q -p 5000 -t 1000 
- ```
 
 Run Openfin with [app.json](app.json) 
 ```
