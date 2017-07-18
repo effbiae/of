@@ -1,4 +1,4 @@
-var kof,wscon,wsset,wsget,wsclo;
+var ocon,opub,wscon,wsset,wsget,wsclo;
 (function(){ "use strict";
   function L(x){console.log(x);}
   wsset=function(w,x,f,g){w.onmessage=f;w.onerror=g;return w.send(x);};
@@ -9,7 +9,7 @@ var kof,wscon,wsset,wsget,wsclo;
   wsget=function(w,x){return new Promise((f,g)=>{wsset(w,x,f,g)});};
   wsclo=function(w){w.close();}
  }
- kofcon=function(x)
+ ocon=function(x)
  {if("fin"       in window) openfin();
   else wscon(L);
  }
