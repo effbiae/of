@@ -24,11 +24,15 @@
 
  [openfin/app-bootstrap](https://github.com/openfin/app-bootstrap)
 
-# Use
-Get [c.js](https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js) eg. 
+# Gettting Started
+Kx libraries required:
+ - [c.js](https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js)
+ - [u.q](https://raw.githubusercontent.com/KxSystems/kdb-tick/master/tick/u.q)
+on unix, use the [get](get) script:
 ```
-$ curl -o c.js https://raw.githubusercontent.com/KxSystems/kdb/master/c/c.js 
+$ . get 
  ```
+
 
 Run q on port 5000 with [hm.q](hm.q).  Openfin needs the q webserver and Openfin apps need Websocket server.
 
