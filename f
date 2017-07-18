@@ -78,13 +78,6 @@ _c$ openfin -l -c app.json _C
 <script src="c.js"></script>
 <script src="kof.js"></script>
 <script>
-function run(){ "use strict";
- var l=window.location,h=l.hostname||"localhost",p=l.port||"POrt";
- wshot(h,p,"til 6").then(x=>console.log(x));
-}
-document.addEventListener("DOMContentLoaded",run);
-</script>
-<!--script>
 L=function(x){return console.log(x);}
 
 function hm()
@@ -99,14 +92,20 @@ function hm()
 }, () => { L("The window has successfully been created"); },
    () => { L("Error creating window"); });
 }
-</script--></head><body></body></html>
+document.addEventListener("DOMContentLoaded",hm);
+</script></head><body></body></html>
 @hm.htm
 <html><head><title>Openfin Heat Map Demo</title>
-<script src="hm.js"></script>
 <script src="c.js"></script>
 <script src="kof.js"></script>
-<script src="index.js"></script>
-<script>document.addEventListener("DOMContentLoaded",run);</script></head>
+<script src="hm.js"></script>
+<script>
+function run(){ "use strict";
+ var l=window.location,h=l.hostname||"localhost",p=l.port||"POrt";
+ wshot(h,p,"til 6").then(x=>console.log(x));
+}
+document.addEventListener("DOMContentLoaded",run);
+</script>
 <body><canvas id="canvas" width="512"></canvas></body></html>
 @hm.q
 changequote(++,++)
