@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded",hm);
 </script></head><body></body></html>
 
 @hm.htm
+changequote(<<,>>)dnl
 <html><head><title>Openfin Heat Map Demo</title>
 <script src="c.js"></script>
 <script src="kof.js"></script>
@@ -104,12 +105,12 @@ document.addEventListener("DOMContentLoaded",hm);
 function run(){ "use strict";
  var l=window.location,h=l.hostname||"localhost",p=l.port||"POrt";
  wshot(h,p,"til 6").then(x=>console.log(x)).catch(function(x){console.log(x);});
+ wshot(h,p,"info`").then(x=>console.log(x)).catch(function(x){console.log(x);});
 }
 document.addEventListener("DOMContentLoaded",run);
 </script>
 <body><canvas id="canvas" width="512"></canvas></body></html>
 @hm.q
-changequote(++,++)
 .h.HOME:first system$[.z.o in`w32`w64;"cd";"pwd"]
 n:5;c:`${"hsl(",string[60*m-x%m:n-1],",100%,50%)"}'[til n];a:`$" "vs"GBP USD EUR JPY CHF CAD AUD NZD"
 info:{(-1_'(a;reverse a)),c}
@@ -118,7 +119,7 @@ sub:{.z.ts:mat};mat:{send[h]((n;n)#(n*n)?4)*not (max[x]-x)<\:x:til n:count[a]-1}
 prot:{@[{(1;0N!value x)};x;(0;)]};send:{neg[x] -8!y}
 .z.ws:{send[.z.w]prot -9!x}
 /.z.wc: .z.ws: .z.ts
-changequote(`,')
+changequote(`,')dnl
 @kof.js
 var ofcon,opub,wscon,wsset,wsget,wsclo,wshot;
 (function(){ "use strict";
@@ -140,7 +141,7 @@ var ofcon,opub,wscon,wsset,wsget,wsclo,wshot;
   };
 })();
 @hm.js
-define(`_',`ignore')
+define(`_',`ignore')dnl
 var hmtest,hmini,hmupd;
 (function(){ "use strict";
  function take(x,y){var r=[];if(x>0){r[x-1]=0;r.fill(y,0,x);}return r;}
