@@ -1,4 +1,4 @@
-var hmtest, hmini, hmupd;
+var hmtest, hmini, hmupd, til;
 (function () {
     "use strict";
 
@@ -10,12 +10,7 @@ var hmtest, hmini, hmupd;
         }
         return r;
     }
-
-    function til(x) {
-        return take(x, 0).map(function (ignore, i) {
-            return i;
-        });
-    }
+    til = (x) => take(x, 0).map((ignore, i) => i);
 
     function drop(x, y) {
         return x < 0 ? y.slice(0, x) : y.slice(x, y.length);
@@ -27,7 +22,7 @@ var hmtest, hmini, hmupd;
     }
 
     function fr(x, r, c) {
-        x.fillStyle = 'rgb(' + c.map(Math.round).join() + ')';
+        x.fillStyle = c;
         x.fillRect.apply(x, r);
         return x;
     }
@@ -52,7 +47,7 @@ var hmtest, hmini, hmupd;
         var e = document.getElementById('canvas');
         g = e.getContext('2d'); //will throw error if no canvas in browser
         var w = e.height = e.width || 512;
-        p = c;
+        p = c.concat(['hsl(0,0%,100%)']);
         var n = a.length;
         if (n != b.length) {
             throw new Error("mismatch");
@@ -63,7 +58,7 @@ var hmtest, hmini, hmupd;
         G = til(n).map(function (x) {
             return til(n).map(function (y) {
                 return [
-                    [(x * rw) + o[0], y * rh + o[1], rw - 1, rh - 1].map(floor), c[0]
+                    [(x * rw) + o[0], y * rh + o[1], rw - 1, rh - 1].map(floor), p[p.length - 1]
                 ];
             });
         });

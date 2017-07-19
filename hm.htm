@@ -4,9 +4,17 @@
 <script src="hm.js"></script>
 <script>
 function run(){ "use strict";
+ function upd(u) {
+   if(u=='ok') return;//first time
+   til(u.length).map(function(y){return til(u[y].length).map(function(x){return hmupd(x,y,u[x][y]);});});
+ }
  var l=window.location,h=l.hostname||"localhost",p=l.port||"5000";
- wshot(h,p,"til 6").then(x=>console.log(x)).catch(function(x){console.log(x);});
- wshot(h,p,"info`").then(x=>console.log(x)).catch(function(x){console.log(x);});
+ function L(x){
+  return Promise.resolve(console.log(x));
+ }
+ wshot(h,p,"til 6").then(L)
+ .then(()=>wshot(h,p,"info`").then(x=>{hmini("Name",x[0],x[1],x[2]);return L(x)}))
+ .then(()=>wscon(h,p).then(x=>wsset(x,'sub`',upd,L))).catch(L);
 }
 document.addEventListener("DOMContentLoaded",run);
 </script>
