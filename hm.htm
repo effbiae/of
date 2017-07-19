@@ -1,7 +1,12 @@
 <html><head><title>Openfin Heat Map Demo</title>
-<script src="hm.js"></script>
 <script src="c.js"></script>
 <script src="kof.js"></script>
-<script src="index.js"></script>
-<script>document.addEventListener("DOMContentLoaded",run);</script></head>
+<script src="hm.js"></script>
+<script>
+function run(){ "use strict";
+ var l=window.location,h=l.hostname||"localhost",p=l.port||"5000";
+ wshot(h,p,"til 6").then(x=>console.log(x)).catch(function(x){console.log(x);});
+}
+document.addEventListener("DOMContentLoaded",run);
+</script>
 <body><canvas id="canvas" width="512"></canvas></body></html>
